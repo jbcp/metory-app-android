@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/loginFragment">
+
+    <action
+        android:id="@+id/action_to_login"
+        app:destination="@id/loginFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/nav_main"
+        app:popUpToInclusive="true"/>
+
+    <action
+        android:id="@+id/action_to_my_info"
+        app:destination="@id/myInfoFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/studyFragment" />
+
+    <action
+        android:id="@+id/action_to_study_detail"
+        app:destination="@id/studyFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/studyFragment" />
+
+    <action
+        android:id="@+id/action_to_study_consent"
+        app:destination="@id/studyConsentFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/studyFragment" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.devmon.crcp.ui.auth.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_loginFragment_to_studyFragment"
+            app:destination="@id/studyFragment"
+            app:popUpTo="@id/nav_main" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.devmon.crcp.ui.auth.register.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/studyDetailFragment"
+        android:name="com.devmon.crcp.ui.studydetail.StudyDetailFragment"
+        android:label="StudyDetailFragment"
+        tools:layout="@layout/fragment_study_detail">
+        <action
+            android:id="@+id/action_recruitingDetailFragment_to_studyPrivacyPolicyFragment"
+            app:destination="@id/studyPrivacyPolicyFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <argument
+            android:name="recruiting"
+            app:nullable="true"
+            app:argType="com.devmon.crcp.ui.model.Recruiting" />
+    </fragment>
+    <fragment
+        android:id="@+id/studyPrivacyPolicyFragment"
+        android:name="com.devmon.crcp.ui.studydetail.StudyPrivacyPolicyFragment"
+        android:label="StudyPrivacyPolicyFragment"
+        tools:layout="@layout/fragment_study_privacy_policy">
+        <action
+            android:id="@+id/action_studyPrivacyPolicyFragment_to_userInfoConfirmFragment"
+            app:destination="@id/userInfoConfirmFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <argument
+            android:name="recruiting"
+            app:nullable="true"
+            app:argType="com.devmon.crcp.ui.model.Recruiting" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoConfirmFragment"
+        android:name="com.devmon.crcp.ui.studydetail.UserInfoConfirmFragment"
+        android:label="UserInfoConfirmFragment"
+        tools:layout="@layout/fragment_user_info_confirm">
+        <action
+            android:id="@+id/action_userInfoConfirmFragment_to_studyConsentFragment"
+            app:destination="@id/studyConsentFragment"
+            app:popUpTo="@id/studyFragment" />
+
+        <argument
+            android:name="recruiting"
+            app:nullable="true"
+            app:argType="com.devmon.crcp.ui.model.Recruiting" />
+    </fragment>
+    <fragment
+        android:id="@+id/studyRegisterResultFragment"
+        android:name="com.devmon.crcp.ui.consent.StudyRegisterResultFragment"
+        android:label="StudyRegisterResultFragment"
+        tools:layout="@layout/fragment_study_register_result">
+        <!--<action
+            android:id="@+id/action_studyRegisterResultFragment_to_studyConsentFragment"
+            app:destination="@id/studyConsentFragment"
+            app:popUpTo="@id/studyConsentFragment"
+            app:launchSingleTop="true" />-->
+    </fragment>
+    <dialog
+        android:id="@+id/passwordFindDialogFragment"
+        android:name="com.devmon.crcp.ui.auth.find.PasswordFindDialogFragment"
+        android:label="PasswordFindDialogFragment"
+        tools:layout="@layout/fragment_password_find_dialog" />
+    <fragment
+        android:id="@+id/studyConsentFragment"
+        android:name="com.devmon.crcp.ui.consent.StudyConsentFragment"
+        android:label="StudyConsentFragment"
+        tools:layout="@layout/fragment_study_consent">
+        <action
+            android:id="@+id/action_studyConsentFragment_to_studyConsentDetailFragment"
+            app:destination="@id/studyConsentDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studySignFragment"
+        android:name="com.devmon.crcp.ui.consent.StudySignFragment"
+        android:label="StudySignFragment"
+        tools:layout="@layout/fragment_my_study_sign">
+        <argument
+            android:name="consent"
+            android:defaultValue="@null"
+            app:argType="com.devmon.crcp.ui.model.Consent"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_studySignFragment_to_studyConsentFragment"
+            app:launchSingleTop="true"
+            app:destination="@id/studyConsentFragment"
+            app:popUpTo="@id/studyConsentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myInfoFragment"
+        android:name="com.devmon.crcp.ui.info.MyInfoFragment"
+        android:label="MyInfoFragment"
+        tools:layout="@layout/fragment_my_info" />
+    <fragment
+        android:id="@+id/studyConsentDetailFragment"
+        android:name="com.devmon.crcp.ui.consent.StudyConsentDetailFragment"
+        android:label="StudyConsentDetailFragment"
+        tools:layout="@layout/fragment_study_consent_detail">
+        <argument
+            android:name="consent"
+            android:defaultValue="@null"
+            app:argType="com.devmon.crcp.ui.model.Consent"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_studyConsentDetailFragment_to_studyConsentCheckFragment"
+            app:destination="@id/studyConsentCheckFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selfScreeningFragment"
+        android:name="com.devmon.crcp.ui.screening.SelfScreeningFragment"
+        android:label="SelfScreeningFragment"
+        tools:layout="@layout/fragment_self_screening" />
+
+    <action
+        android:id="@+id/action_to_selfScreeningFragment"
+        app:destination="@id/selfScreeningFragment"
+        app:popUpTo="@id/studyFragment" />
+
+    <dialog
+        android:id="@+id/genderSelectFragment"
+        android:name="com.devmon.crcp.ui.info.GenderSelectFragment"
+        tools:layout="@layout/fragment_gender_select"
+        android:label="GenderSelectFragment" />
+    <fragment
+        android:id="@+id/studyFragment"
+        android:name="com.devmon.crcp.ui.study.StudyFragment"
+        tools:layout="@layout/fragment_study"
+        android:label="StudyFragment" >
+        <action
+            android:id="@+id/action_studyFragment_to_studyDetailFragment"
+            app:destination="@id/studyDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studyConsentCheckFragment"
+        android:name="com.devmon.crcp.ui.consent.StudyConsentCheckFragment"
+        android:label="StudyConsentCheckFragment"
+        tools:layout="@layout/fragment_consent_check">
+        <argument
+            android:name="consent"
+            android:defaultValue="@null"
+            app:argType="com.devmon.crcp.ui.model.Consent"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_studyConsentCheckFragment_to_studySignFragment"
+            app:destination="@id/studySignFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatDetailFragment"
+        android:name="com.devmon.crcp.ui.chat.ChatDetailFragment"
+        tools:layout="@layout/fragment_chat_detail"
+        android:label="ChatDetailFragment" />
+    <action
+        android:id="@+id/action_to_chatDetailFragment"
+        app:destination="@id/chatDetailFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/studyFragment" />
+    <action
+        android:id="@+id/action_global_passwordFindDialogFragment"
+        app:destination="@id/passwordFindDialogFragment" />
+    <action
+        android:id="@+id/action_global_genderSelectFragment"
+        app:destination="@id/genderSelectFragment" />
+
+    <fragment
+        android:id="@+id/emptyStudyFragment"
+        android:name="com.devmon.crcp.ui.emptystudy.EmptyStudyFragment"
+        android:label="EmptyStudyFragment" />
+    <action
+        android:id="@+id/action_global_emptyStudyFragment"
+        app:destination="@id/emptyStudyFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+</navigation>

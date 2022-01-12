@@ -1,0 +1,164 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+def Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        applicationId "com.devmon.crcp"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 4
+        versionName "1.0.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        setProperty("archivesBaseName", applicationId + "_v" + versionCode + "(" + versionName + ")")
+
+        buildConfigField("String", "HOST_URL", properties.getProperty("HOST_URL"))
+        buildConfigField("String", "PUSH_URL", properties.getProperty("PUSH_URL"))
+        buildConfigField("String", "PASS_URL", properties.getProperty("PASS_URL"))
+    }
+    signingConfigs {
+        release {
+            storeFile file(properties.getProperty("SIGNED_STORE_FILE"))
+            storePassword properties.getProperty("SIGNED_STORE_PASSWORD")
+            keyAlias properties.getProperty("SIGNED_KEY_ALIAS")
+            keyPassword properties.getProperty("SIGNED_KEY_PASSWORD")
+            applicationVariants.all { variant ->
+                variant.outputs.all { ouput ->
+                    outputFileName = new File(outputFileName.replace("app", "metory_release_v" + defaultConfig.versionName))
+                }
+            }
+        }
+        debug {
+            applicationVariants.all { variant ->
+                variant.outputs.all { ouput ->
+                    outputFileName = new File(outputFileName.replace("app", "metory_debug_v" + defaultConfig.versionName))
+                }
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        dataBinding = true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion rootProject.composeVersion
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.21"
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    implementation 'androidx.activity:activity-ktx:1.2.4'
+    implementation 'androidx.fragment:fragment-ktx:1.3.6'
+
+    //material
+    implementation 'com.google.android.material:material:1.4.0'
+
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-service:2.3.1"
+
+    // compose
+    implementation "androidx.compose.runtime:runtime:$rootProject.composeVersion"
+    implementation "androidx.compose.ui:ui:$rootProject.composeVersion"
+    implementation "androidx.compose.foundation:foundation:$rootProject.composeVersion"
+    implementation "androidx.compose.foundation:foundation-layout:$rootProject.composeVersion"
+    implementation "androidx.compose.material:material:$rootProject.composeVersion"
+    implementation "androidx.compose.runtime:runtime-livedata:$rootProject.composeVersion"
+    implementation "androidx.compose.ui:ui-tooling:$rootProject.composeVersion"
+    implementation "com.google.android.material:compose-theme-adapter:$rootProject.composeVersion"
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0-beta02"
+
+    //Room
+    implementation "androidx.room:room-runtime:2.3.0"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "androidx.room:room-compiler:2.3.0"
+    implementation "androidx.room:room-ktx:2.3.0"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    //Retrofit2 + Okhttp3
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+    implementation "com.squareup.okhttp3:okhttp:4.9.1"
+
+    //Coroutine
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
+
+    //SharedPreferences
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+
+    // Hilt dependencies
+    implementation "com.google.dagger:hilt-android:2.37"
+    kapt "com.google.dagger:hilt-android-compiler:2.37"
+    implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+    testImplementation "com.google.truth:truth:1.1.3"
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.3.0'
+
+    // firebase
+    implementation platform('com.google.firebase:firebase-bom:26.5.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+
+    implementation 'com.google.android:flexbox:2.0.1'
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.devmon.crcp.ui.widget.BaseButton
+            android:id="@+id/btn_start"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:gravity="center"
+            android:background="@drawable/bg_blue_900_ripple"
+            app:layout_constraintEnd_toStartOf="@id/btn_end"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="전화걸기" />
+
+        <com.devmon.crcp.ui.widget.BaseButton
+            android:id="@+id/btn_end"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:gravity="center"
+            android:background="@drawable/bg_blue_400_ripple"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_start"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="참여신청" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

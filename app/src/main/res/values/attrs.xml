@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TwoButtonView">
+        <attr name="startVisible" format="boolean|reference" />
+        <attr name="startText" format="string|reference" />
+        <attr name="endText" format="string|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="UserInfoView">
+        <attr name="uiv_label" format="string|reference" />
+        <attr name="uiv_content" format="string|reference" />
+        <attr name="uiv_icon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ScreeningCheckView">
+        <attr name="scv_label" format="string|reference" />
+        <attr name="scv_agree" format="string|reference" />
+        <attr name="scv_disagree" format="string|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ScreeningDatePickerView">
+        <attr name="sdpv_label" format="string|reference" />
+        <attr name="sdpv_check_enabled" format="boolean|reference" />
+        <attr name="sdpv_check_text" format="string|reference" />
+        <attr name="sdpv_check_current" format="boolean|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ScreeningDrugView">
+        <attr name="sdv_button_visible" format="boolean|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ScreeningEditTextView">
+        <attr name="setv_label" format="string|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ScreeningSelectorView">
+        <attr name="ssv_label" format="string|reference" />
+    </declare-styleable>
+</resources>

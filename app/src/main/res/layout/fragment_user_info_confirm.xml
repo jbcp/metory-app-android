@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devmon.crcp.ui.studydetail.UserInfoConfirmViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_header"
+            style="@style/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_blue_400"
+            android:gravity="center"
+            android:text="정보확인"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.devmon.crcp.ui.widget.StudyRegisterTitleView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/user_info_confirm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_header" />
+
+        <com.devmon.crcp.ui.widget.UserInfoView
+            android:id="@+id/tv_cellphone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:onClick="@{()->vm.onPhone()}"
+            app:uiv_content="@{vm.phone}"
+            app:uiv_icon="@drawable/ic_user_info_pen"
+            app:uiv_label="휴대전화"
+            tools:uiv_content="010-1111-2222" />
+
+        <com.devmon.crcp.ui.widget.UserInfoView
+            android:id="@+id/tv_birthday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_cellphone"
+            app:onClick="@{()->vm.onBirthEdit()}"
+            app:uiv_content="@{vm.birth}"
+            app:uiv_icon="@drawable/ic_user_info_calendar"
+            app:uiv_label="생년월일"
+            tools:uiv_content="1991.01.01(만 20세)" />
+
+        <com.devmon.crcp.ui.widget.UserInfoView
+            android:id="@+id/tv_gender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_birthday"
+            app:onClick="@{()->vm.onGenderEdit()}"
+            app:uiv_content="@{vm.genderText}"
+            app:uiv_icon="@drawable/ic_user_info_pen"
+            app:uiv_label="성별"
+            tools:uiv_content="남" />
+
+        <com.devmon.crcp.ui.widget.TwoButtonView
+            android:id="@+id/btn_move"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:endText="신청하기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:onEndClick="@{() -> vm.onNext()}"
+            app:onStartClick="@{() -> vm.onPrev()}"
+            app:startText="@string/prev" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devmon.crcp.ui.info.MyInfoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_blue_400"
+            android:gravity="center"
+            android:text="내 정보"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title">
+
+            <com.devmon.crcp.ui.widget.UserInfoView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:onClick="@{()->vm.onPassword()}"
+                app:uiv_content="*****"
+                app:uiv_icon="@drawable/ic_user_info_pen"
+                app:uiv_label="비밀번호" />
+
+            <com.devmon.crcp.ui.widget.UserInfoView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:onClick="@{()->vm.onPhone()}"
+                app:uiv_content="@{vm.phone}"
+                app:uiv_icon="@drawable/ic_user_info_pen"
+                app:uiv_label="휴대전화"
+                tools:uiv_content="010-1234-1234" />
+
+            <com.devmon.crcp.ui.widget.UserInfoView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:onClick="@{()->vm.onBirthEdit()}"
+                app:uiv_content="@{vm.birth}"
+                app:uiv_icon="@drawable/ic_user_info_calendar"
+                app:uiv_label="생년월일"
+                tools:uiv_content="1999.01.01(만 20세)" />
+
+            <com.devmon.crcp.ui.widget.UserInfoView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:onClick="@{()->vm.onGenderEdit()}"
+                app:uiv_content="@{vm.genderText}"
+                app:uiv_icon="@drawable/ic_user_info_pen"
+                app:uiv_label="성별       "
+                tools:uiv_content="남" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_my_info"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_user_info">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="@{vm.name}"
+                android:textColor="@color/color_black"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="홍길동 (남)" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{vm.email}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                tools:text="ID: crcp@gmail.com" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_qr"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/sample_qr_02" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="52489789"
+                app:layout_constraintEnd_toEndOf="@id/iv_qr"
+                app:layout_constraintStart_toStartOf="@id/iv_qr"
+                app:layout_constraintTop_toBottomOf="@id/iv_qr" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

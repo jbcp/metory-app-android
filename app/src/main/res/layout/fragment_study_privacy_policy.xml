@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devmon.crcp.ui.studydetail.StudyPrivacyPolicyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_header"
+            style="@style/top_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/color_blue_400"
+            android:gravity="center"
+            android:text="이용동의"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.devmon.crcp.ui.widget.StudyRegisterTitleView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/privacy_policy_agreement"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_header" />
+
+        <ScrollView
+            android:id="@+id/sv_agreement"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="24dp"
+            android:background="@drawable/bg_policy_border"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@id/checkbox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_agreement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="@string/loram"
+                android:textColor="@color/color_black" />
+        </ScrollView>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:checked="@={vm.policyChecked}"
+            android:text="개인정보 수집 및 이용에 대해 동의합니다."
+            android:textColor="@color/color_black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/btn_move"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <com.devmon.crcp.ui.widget.TwoButtonView
+            android:id="@+id/btn_move"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:endText="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:onEndClick="@{() -> vm.onNext()}"
+            app:onStartClick="@{() -> vm.onPrev()}"
+            app:startText="@string/prev" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

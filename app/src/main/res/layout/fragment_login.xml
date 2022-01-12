@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devmon.crcp.ui.auth.login.LoginViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.HomeFragment">
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/top_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_118ccf"
+                android:gravity="center"
+                android:text="로그인"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                style="@style/regular_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="36dp"
+                android:text="이메일"
+                android:textColor="@color/color_black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <EditText
+                android:id="@+id/et_email"
+                style="@style/regular_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:singleLine="true"
+                android:lines="1"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/bg_bottom_line_b2b2b2"
+                android:paddingTop="9dp"
+                android:paddingBottom="9dp"
+                android:text="@={vm.email}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_email"
+                tools:text="crcp@gmail.com" />
+
+            <TextView
+                android:id="@+id/tv_password"
+                style="@style/regular_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="비밀번호"
+                android:textColor="@color/color_black"
+                app:layout_constraintStart_toStartOf="@+id/et_email"
+                app:layout_constraintTop_toBottomOf="@+id/et_email" />
+
+            <EditText
+                android:id="@+id/ev_password"
+                style="@style/regular_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_bottom_line_b2b2b2"
+                android:inputType="textPassword"
+                android:paddingTop="9dp"
+                android:paddingBottom="9dp"
+                android:text="@={vm.password}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_password"
+                app:layout_constraintTop_toBottomOf="@+id/tv_password" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/regular_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:onClick="@{()->vm.onFindPassword()}"
+                android:text="비밀번호 재설정"
+                android:textColor="@color/color_898989"
+                app:layout_constraintBottom_toBottomOf="@+id/ev_password"
+                app:layout_constraintEnd_toEndOf="@+id/ev_password"
+                app:layout_constraintTop_toTopOf="@+id/ev_password" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/regular"
+                android:checked="@{vm.getAutoLogin()}"
+                android:onCheckedChanged="@{(_,isChecked)->vm.setAutoLogin(isChecked)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ev_password" />
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/regular_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="true"
+                android:text="자동 로그인"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/checkBox2"
+                app:layout_constraintStart_toEndOf="@+id/checkBox2"
+                app:layout_constraintTop_toTopOf="@+id/checkBox2" />
+
+            <TextView
+                android:id="@+id/tv_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:padding="14dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_corner_2_solid_f5f5f5_stroke_05_cccccc"
+                android:fontFamily="@font/regular"
+                android:onClick="@{()->vm.onRegister()}"
+                android:text="회원가입"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_info" />
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:padding="14dp"
+                android:gravity="center"
+                android:background="@drawable/bg_corner_2_solid_118ccf"
+                android:fontFamily="@font/regular"
+                app:onThrottleClick="@{()->vm.onLogin()}"
+                android:text="로그인"
+                android:textColor="@color/color_fff"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/tv_info"
+                style="@style/regular_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="아직 회원이 아니시면 회원가입해주세요."
+                android:textColor="@color/color_black"
+                app:layout_constraintStart_toStartOf="@+id/tv_login"
+                app:layout_constraintTop_toBottomOf="@+id/tv_login" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

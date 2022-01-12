@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Metory</string>
+
+    <string name="loram">
+        1. 개인정보 수집 및 이용\n
+        미투리(MEOTRY) 서비스는「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 및 「개인정보보호법」에 의거하여 개인정보를 수집ㆍ이용 할 때 동의를 받고 있습니다.\n\n
+        ① 개인 정보 수집ㆍ이용 목적\n
+        ㆍ임상시험 자원자 등록\n
+        ㆍ미투리를 통해 모집하는 임상시험 관련 정보제공\n\n
+        ② 개인 정보의 보유ㆍ이용 기간\n
+        정보수집ㆍ이용 목적 달성 시까지 귀하의 개인정보를 보유할 수 있습니다.\n\n
+        ③ 수집하는 개인 정보의 항목\n
+        ㆍ성명, 생년월일, 성별, 이메일, 전화번호 등 연구참여에 필요한 정보\n
+        ㆍ위와 동일한 목적으로 아래 귀하의 민감정보를 수집할 수 있습니다.\n
+        - 과거 진료기록 등 병력\n
+        ㆍ이 외 미투리서비스를 통해 임상시험에 자원할 때 자원하기 필드에 기재된 항목\n
+        ④ 개인 정보 수집 ․ 이용 거부 권리\n
+        시험대상자 또는 시험대상자의 대리인은 개인정보수집을 거부할 권리가 있습니다. 수집을 거부하는 경우 임상시험에 참여하지 못 할 수 있습니다.\n\n
+        2. 개인정보의 처리 및 보유기간\n
+        미투리(MEOTRY)는 법령에 따른 개인정보 보유 • 이용기간 또는 정보주체로부터 개인정보를 수집할 때 동의 받은 개인정보 보유 • 이용기간 내에서 개인정보를 처리 • 보유합니다.
+    </string>
+    <string name="BottomNavMenu001">홈</string>
+    <string name="BottomNavMenu002">임상연구</string>
+    <string name="BottomNavMenu003">내 정보</string>
+    <string name="BottomNavMenu004">내 연구</string>
+
+    <string name="DrawerNavMenu000">마이페이지</string>
+    <string name="DrawerNavMenu001">　　　내 정보</string>
+    <string name="DrawerNavMenu002">　　　관심연구</string>
+    <string name="DrawerNavMenu003">　　　참여이력</string>
+    <string name="DrawerNavMenu004">임상연구 검색</string>
+    <string name="DrawerNavMenu005">로그인</string>
+    <string name="DrawerNavMenu006">로그아웃</string>
+
+    <string name="RecruitingIng001">모집중</string>
+    <string name="RecruitingIng002">마감</string>
+
+    <string name="recruiting_information">모집정보</string>
+    <string name="privacy_policy_agreement">개인정보 이용동의</string>
+
+    <string name="agree">동의</string>
+    <string name="disagree">비동의</string>
+    <string name="prev">이전</string>
+    <string name="next">다음</string>
+
+    <string name="user_info_confirm">기본 정보 확인</string>
+
+    <string name="question_study_history">최근 6개월 이내에 임상연구에 지원하여 약을 복용한 적이 있습니까?</string>
+    <string name="study_register_success">참여 신청이 완료되었습니다.</string>
+    <string name="confirm">확인</string>
+    <string name="my_info">내 정보</string>
+
+    <string name="yes">네</string>
+    <string name="no">아니오</string>
+    <string name="age_kr">(만%d세)</string>
+
+    <string name="snum_count_fmt">%d명</string>
+    <string name="consent_all_agree">모든 동의서에 동의하셨습니다.\n연구 참여 신청에 감사드립니다.\n서명한 동의서는 동의서를 선택하여 확인 하실 수 있습니다.</string>
+    <string name="save">저장</string>
+    <string name="default_notification_channel_id">1200</string>
+    <string name="please_wait">잠시만 기다려주세요…</string>
+    <string name="error_empty_study">현재 진행 중인 연구가 없습니다.\n연구를 신청해주세요.</string>
+
+    <string name="not_participate_study">현재 진행 중인 연구가 없습니다.\n연구를 신청해주세요.</string>
+    <string name="empty_screening">등록된 자가진단 문항이 없습니다.</string>
+    <string name="server_error">잠시 후 다시 요청해주세요.</string>
+</resources>

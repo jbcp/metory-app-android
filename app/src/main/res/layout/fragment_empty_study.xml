@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devmon.crcp.ui.emptystudy.EmptyStudyViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_error_message"
+            android:layout_width="match_parent"
+            android:textSize="18dp"
+            android:textColor="@color/color_black"
+            tools:text="@string/error_empty_study"
+            android:textAlignment="center"
+            android:layout_marginBottom="24dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@{vm.message}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_go_study_list"
+            android:layout_width="match_parent"
+            app:cornerRadius="8dp"
+            onThrottleClick="@{() -> vm.onClickStudyList()}"
+            android:backgroundTint="@color/color_blue_400"
+            android:text="연구 목록으로 가기"
+            android:layout_height="80dp" />
+
+
+    </LinearLayout>
+
+</layout>

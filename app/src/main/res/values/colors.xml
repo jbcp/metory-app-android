@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="color_fff">#fff</color>
+    <color name="color_031966">#031966</color>
+    <color name="color_858585">#858585</color>
+    <color name="color_c1c1c1">#C1C1C1</color>
+    <color name="color_11487a">#11487a</color>
+    <color name="color_118ccf">#118ccf</color>
+    <color name="color_9de1f4">#9de1f4</color>
+
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+    <color name="color_blue_200">#9de1f4</color>
+    <color name="color_blue_400">#108CCF</color>
+    <color name="color_blue_900">#11487A</color>
+    <color name="color_grey_200">#EEEEEE</color>
+    <color name="color_grey_250">#cdcdcd</color>
+    <color name="color_grey_300">#959595</color>
+    <color name="color_898989">#898989</color>
+    <color name="color_f5f5f5">#f5f5f5</color>
+    <color name="color_cccccc">#cccccc</color>
+    <color name="color_ripple">#C3C3C3</color>
+    <color name="color_7d7d7d">#7d7d7d</color>
+    <color name="color_dadada">#dadada</color>
+    <color name="color_434f5e">#434f5e</color>
+    <color name="transperant">#00000000</color>
+
+    <color name="color_screening_label">@color/color_black</color>
+</resources>
