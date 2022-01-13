@@ -1,6 +1,6 @@
 # metory-app-android
 
-METORY - The real-world feasibility of a blockchain-based dynamic consent platform 
+The real-world feasibility of a blockchain-based dynamic consent platform 
 
 | ![1.jpg](https://github.com/jbcp/metory-app-android/blob/main/imgs/1.jpg?raw=true) | ![2.jpg](https://github.com/jbcp/metory-app-android/blob/main/imgs/2.jpg?raw=true) | ![3.jpg](https://github.com/jbcp/metory-app-android/blob/main/imgs/3.jpg?raw=true) | ![4.jpg](https://github.com/jbcp/metory-app-android/blob/main/imgs/4.jpg?raw=true) | ![5.jpg](https://github.com/jbcp/metory-app-android/blob/main/imgs/5.jpg?raw=true) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
