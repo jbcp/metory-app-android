@@ -14,5 +14,6 @@ The real-world feasibility of a blockchain-based dynamic consent platform
 
 ---
 
-Copyright©2021, All Rights Reserved by Clinical Trial Center, Seoul National University Hospital, Seoul, Republic of Korea, Center for Clinical Pharmacology and Biomedical Research Institute, Jeonbuk National University Hospital, Jeonju, Republic of Korea
+Copyright©2021, All Rights Reserved by Department of Clinical Pharmacology and Therapeutics, Seoul National University College of Medicine and Hospital, Seoul, Republic of Korea 
+, Center for Clinical Pharmacology and Biomedical Research Institute, Jeonbuk National University Hospital, Jeonju, Republic of Korea
 
